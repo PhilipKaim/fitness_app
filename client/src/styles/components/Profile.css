@@ -4,3 +4,11 @@
     width: 100px;
     height: auto;
 }
+
+#dashboard__side-panel {
+    height: 100vh;
+}
+
+#dashboard__main, #dashboard__side-panel {
+    display: inline-block;
+}

@@ -4,8 +4,9 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 import NavBar from '../presentational/NavBar.jsx';
+import UserPieChart from '../UserPieChart.jsx';
+import DatePicker from '../DatePicker.jsx';
 import User from '../presentational/User.jsx';
-import Footer from '../presentational/Footer.jsx';
 
 import { getUser } from '../../actions/user';
 
@@ -38,8 +39,17 @@ class Profile extends Component {
         return (
             <div>
                 <NavBar signout={ true } />
-                <User image={ image } firstName={ firstName } lastName={ lastName } />
-                <Footer />
+                <div className=''>
+                    <div id="dashboard__side-panel" className='col-md-4 shadow-sm rounded'>
+                        <User image={ image } firstName={ firstName } lastName={ lastName } />                    
+                    </div>
+                    <div id="dashboard__main" className='col-md-8 shadow-sm rounded'>
+                        <div>
+                            <DatePicker />
+                            <UserPieChart />
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

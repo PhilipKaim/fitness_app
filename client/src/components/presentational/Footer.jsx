@@ -8,12 +8,4 @@ const Footer = (props) => {
         );
 }
 
-const style = {
-    container: {
-        width: '100%',
-        height: '300px',
-        backgroundColor: 'cornflowerblue'
-    }
-}
-
 export default Footer;

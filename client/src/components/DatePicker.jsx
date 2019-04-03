@@ -3,22 +3,16 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import uuid from 'uuid';
 import moment from 'moment';
+
 import { DateRangePicker } from 'react-dates';
 
-import UserPieChart from '../UserPieChart.jsx';
+import { getNutritionTotal } from '../actions/foods';
+import { setStartAndEndCalenderDates } from '../actions/foods';
+import { setFocusedInput } from '../actions/foods';
 
-import NavBar from '../presentational/NavBar.jsx';
-
-import { getNutritionTotal } from '../../actions/foods';
-import { setStartAndEndCalenderDates } from '../../actions/foods';
-import { setFocusedInput } from '../../actions/foods';
-
-class Data extends Component {
+class DatePicker extends Component {
 
     componentDidMount() {
-        if (window.localStorage.getItem('jwt') === null) {
-            this.props.history.push("/");
-        }
         this.setNutrition();
     }
 
@@ -45,6 +39,7 @@ class Data extends Component {
     };
 
     render() {
+
         let { startDate, endDate, focusedInput } = this.props.foods;
 
         if (!startDate && !endDate) {
@@ -54,7 +49,6 @@ class Data extends Component {
 
         return (
             <div>
-                <NavBar signout={ true } />
                 <DateRangePicker
                     startDate={ startDate }
                     startDateId={ uuid() }
@@ -65,10 +59,6 @@ class Data extends Component {
                     onFocusChange={ this.onFocusChange }
                     isOutsideRange={ () => false }
                 />
-
-                <div className='d-flex justify-content-center'>
-                    <UserPieChart />
-                </div>
             </div>
         );
     }
@@ -82,4 +72,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Data);
+export default connect(mapStateToProps)(DatePicker);

@@ -11,9 +11,8 @@ const NavBar = (props) => (
             props.signout
                 &&
             <span>
-                <NavLink activeClassName='is-active' to='/profile'>Profile</NavLink>
+                <NavLink activeClassName='is-active' to='/dashboard'>Dashboard</NavLink>
                 <NavLink activeClassName='is-active' to='/food'>Manage Food</NavLink>
-                <NavLink activeClassName='is-active' to='/data'>Data</NavLink>
             </span>
             }
             {
