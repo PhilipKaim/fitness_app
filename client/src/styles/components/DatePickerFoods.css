@@ -1,0 +1,13 @@
+.datePickerFood {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 2px 4px 0 #ddd;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.datePickerFood img {
+    width: 75px;
+    height: 75px;;
+}

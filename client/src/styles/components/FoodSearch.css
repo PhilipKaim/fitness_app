@@ -1,0 +1,28 @@
+.search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search__list {
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 80.5%;
+}
+
+.search__input {
+    width: 80%;
+    height: 30px;
+    border: #eee solid 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.search__input:focus {
+    outline: none;
+}

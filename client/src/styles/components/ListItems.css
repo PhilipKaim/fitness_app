@@ -1,0 +1,22 @@
+.search__items {
+    width: 100%;
+    list-style: none;
+    border: solid #eee 2px;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search__items:nth-child(even) {
+    background: #eee;
+}
+
+.search__item {
+    padding: 5px 0px 5px 5px;
+    
+}
+
+.search__item:hover {
+    cursor: pointer;
+    background: cornflowerblue;
+}

@@ -1,0 +1,29 @@
+.navbar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #eee;
+}
+
+.is-active {
+    border-bottom: solid cornflowerblue 3px;
+    color: black;
+}
+
+a .navbar__sign-in {
+    height: 80%;
+    border: solid #aaa 2px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.navbar__sign-in:hover,
+.navbar__sign-in:focus,
+.navbar__sign-in:active {
+    cursor: pointer;
+    outline: none;
+    background: #efefef;
+}

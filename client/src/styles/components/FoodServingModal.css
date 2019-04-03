@@ -1,0 +1,41 @@
+.food-serving-modal {
+    height: 500px;
+    width: 400px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.07), 0px 15px 35px 0px rgba(0, 0, 0, 0.2);
+}
+
+.food-serving-modal__form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.food-serving-modal__quantity {
+
+}
+
+.food-serving-modal__weight {
+
+}
+
+.food-serving-modal__submit {
+    padding: 10px 15px !important;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    color: white;
+    margin-top: 20px;
+}
+
+.food-serving-modal__submit:hover {
+    cursor: pointer;
+}

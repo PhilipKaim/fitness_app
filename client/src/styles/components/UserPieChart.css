@@ -1,0 +1,18 @@
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    border: solid #4b4b4b 2px;
+    pointer-events: none;
+    background: white;
+    padding: 20px
+  }
+  
+  .tooltip:before {
+    content: ' ';
+    border: solid transparent 12px;
+    top: -25px;
+    position: absolute;
+    left: 50%;
+    margin-left: -12px;
+    border-bottom-color: #4b4b4b;
+  }

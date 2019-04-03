@@ -1,0 +1,52 @@
+{
+  "name": "fitness_app_v2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.0",
+    "concurrently": "^3.5.0",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.1.8",
+    "mongoose": "^4.13.17",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.12.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "query-string": "^6.2.0",
+    "querystring": "^0.2.0",
+    "validator": "^10.8.0"
+  },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "5.6.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha /**/*.test.js",
+    "test-watch": "nodemon --exec 'npm run test'",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "export NODE_ENV=production npm install --prefix client && npm run build --prefix client"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "expect": "^23.6.0",
+    "supertest": "^3.3.0",
+    "mocha": "^5.2.0"
+  }
+}
