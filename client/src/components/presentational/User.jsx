@@ -1,14 +1,15 @@
 import React from 'react';
 
-import '../../styles/components/User.css';
-
 const User = (props) => (
-    <div className='user'>
+    <div className='user d-flex justify-content-center align-items-center flex-column p-3'>
         {props.image !== undefined
             &&
-        <img src={ props.image }
-        alt={ `${props.firstName} ${props.lastName}` }
-        className='user__image' />}
+            <div>
+                <img src={ props.image }
+                alt={ `${props.firstName} ${props.lastName}` }
+                className='user__image' />
+            </div>
+        }
         
         <div className='user__name'>{ props.firstName !== undefined && `Welcome ${props.firstName}!` }</div>
     </div>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from '../components/pages/Login.jsx';
 import ManageFood from '../components/pages/ManageFood.jsx';
 import Error from '../components/pages/Error.jsx';
-import Dashboard from '../components/pages/Dashboard.jsx';
+import Dashboard from '../components/pages/Main.jsx';
 
 const AppRouter = () => (
   <div>
