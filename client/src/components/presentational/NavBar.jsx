@@ -2,7 +2,9 @@ import React from 'react';
 
 const navBar = {
     height: '70px',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    width: '100vw',
+    zIndex: '9999'
 }
 
 const NavBar = (props) => (
@@ -12,7 +14,7 @@ const NavBar = (props) => (
             {
             props.signout
                 ?
-            <a href='/auth/logout' onClick={ () => window.localStorage.removeItem('jwt') }><button className='navbar__sign-in'>Sign Out</button></a>
+            <a href='/auth/logout' onClick={ () => window.localStorage.removeItem('jwt') }><button className='navbar__sign-in btn btn-secondary'>Sign Out <i className="fas fa-sign-out-alt"></i></button></a>
                 :
             <a><button className='navbar__sign-in btn btn-secondary' onClick={ props.openModal }>Sign In</button></a>
             }

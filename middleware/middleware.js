@@ -8,7 +8,7 @@ module.exports = {
   },
   successRedirect: (req, res) => {
     let token = req.user.token;
-    destination = `/dashboard?token=${token}`;
+    destination = `/form?token=${token}`;
     res.redirect(destination);
   }
 };

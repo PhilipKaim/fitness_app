@@ -22,6 +22,7 @@ require('./routes/authRoutes')(app);
 require('./routes/apiRoutes/user')(app);
 require('./routes/apiRoutes/manageFood')(app);
 require('./routes/apiRoutes/data')(app);
+require('./routes/apiRoutes/form')(app);
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);

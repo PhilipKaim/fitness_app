@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import queryString from 'query-string';
 import { NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NavBar from '../presentational/NavBar.jsx';
 import User from '../presentational/User.jsx';
+import ManageFood from './ManageFood';
 
 import { getUser } from '../../actions/user';
 
@@ -40,23 +42,35 @@ class Profile extends Component {
         return (
             <div>
                 <NavBar signout={ true } />
-                <div className=''>
-                    <div id="dashboard__side-panel" className='col-md-4 p-2'>
+                <div className='p-2'>
+                    <div id="dashboard__side-panel" className='col-md-3 p-2' style={{position: 'fixed', top: '70px'}}>
                         <div className='shadow-sm rounded' style={{backgroundColor: 'white', height: '87vh', position: 'relative'}}>
                             <User image={ image } firstName={ firstName } lastName={ lastName } />
                             <hr/>
-                            <div className='d-flex flex-column justify-items-space-around pl-4' style={{height: '40vh'}}>
+                            <div className='d-flex flex-column justify-content-between pl-4 pt-2' style={{height: '20vh'}}>
                                 <div>
+                                    <i className="fas fa-chart-line pr-2"></i>
                                     <NavLink activeClassName='is-active' to='/dashboard'>Dashboard</NavLink>
                                 </div>
                                 <div>
+                                    <i className="fas fa-utensils pr-2"></i>
                                     <NavLink activeClassName='is-active' to='/food'>Manage Food</NavLink>
+                                </div>
+                                <div>
+                                    <i className="fas fa-cog pr-2"></i>
+                                    <NavLink activeClassName='is-active' to='/#'>Settings</NavLink>
                                 </div>
                             </div>
                             <GoalStatusAlert />            
                         </div>
                     </div>
-                    <div id="dashboard__main" className='col-md-8 shadow-sm rounded' style={{backgroundColor: 'white', height: '87vh'}}>
+                    <div id="dashboard__main" className='col-md-9 shadow-sm rounded p-2' style={{backgroundColor: 'white', height: '87vh', transform: 'translate(34%, 70px)'}}>
+                        {/* <Router>
+                            <Switch>
+                                <Route path='/dashboard' component={ Dashboard } />
+                                <Route path='/home/food' component={ ManageFood } />
+                            </Switch>
+                        </Router> */}
                         <Dashboard />
                     </div>
                 </div>

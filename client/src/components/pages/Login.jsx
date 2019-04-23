@@ -10,7 +10,7 @@ class Login extends Component {
 
     componentDidMount() {
         if (window.localStorage.getItem('jwt')) {
-            this.props.history.push('/profile');
+            this.props.history.push('/home');
         }
     }
 

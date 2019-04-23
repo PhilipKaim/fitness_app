@@ -99,26 +99,32 @@ class ManageFood extends Component {
             <div>
                 <NavBar signout={ true } />
                 { message && <Alert message={message} resetAlert={ () => this.handleResetAlert() } /> }
-                <FoodSearch />
+                <div className='row container'>
+                    <div className='col-md-3'>
+                        <SingleDatePicker
+                            date={ singleDatePickerDate }
+                            onDateChange={ this.onDateChange }
+                            focused={ singleDatePickerFocused }
+                            onFocusChange={ this.onFocusChange }
+                            numberOfMonths={ 1 }
+                            isOutsideRange={ () => false }
+                        />
+                    </div>
+                    <div className='col-md-9'>
+                        <FoodSearch />
+                    </div>
+                </div>
                 {
                   visability
                     &&
                   modal === 'add'
                     &&
                   <FoodServingModal
-                    foodItem={ this.props.foods.selectedFoodName }
-                    image={ this.props.foods.selectedFoodImage }
+                  foodItem={ this.props.foods.selectedFoodName }
+                  image={ this.props.foods.selectedFoodImage }
                     calculateFood={ this.handleCalculateSelectedFoodNutrition }
                   />
                 }
-                <SingleDatePicker
-                    date={ singleDatePickerDate }
-                    onDateChange={ this.onDateChange }
-                    focused={ singleDatePickerFocused }
-                    onFocusChange={ this.onFocusChange }
-                    numberOfMonths={ 1 }
-                    isOutsideRange={ () => false }
-                />
 
                 { pickedDateFoods }
 
