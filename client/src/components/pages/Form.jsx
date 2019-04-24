@@ -30,6 +30,7 @@ const InitForm = ({ errors, touched, isSubmitting }) => {
                 
                 <div className='form-group'>
                     { touched.weight && errors.weight & <p>{ errors.weight }</p> }
+                    {/* { console.log(errors) } */}
                     <label htmlFor='weight'>Your current weight(lbs):
                         <Field type='number' name='weight' autoFocus />
                     </label>
@@ -59,7 +60,9 @@ const FormikApp = withFormik({
     },
     validationSchema: Yup.object().shape({
         // REQUIRED ERROR MESSAGE NOT SHOWING
-        weight: Yup.number().min(2).required('Your current weight is required')
+        weight: Yup.number('please enter a valid number')
+                    .min(2, 'please enter 2 or more characters')
+                    .required('Your current weight is required')
     }),
     async handleSubmit(values, { setSubmitting }) {
         const {weight, goal} = values
@@ -67,6 +70,7 @@ const FormikApp = withFormik({
         try {
             await axios.post(`/api/form/${weight}/${goal}`)
             setSubmitting(false)
+            window.location.href = '/home'
         } catch(e) {
             console.log(e);
             setSubmitting(false)

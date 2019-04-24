@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 const navBar = {
     height: '70px',
@@ -9,7 +10,7 @@ const navBar = {
 
 const NavBar = (props) => (
     <nav className='navbar shadow-sm' style={navBar}>
-        <span><a href='/'>LOGO</a></span>
+        <span><NavLink to='/home'>LOGO</NavLink></span>
         <div className='navbar__links'>
             {
             props.signout
