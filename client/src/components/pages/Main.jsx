@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import queryString from 'query-string';
 import { NavLink } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NavBar from '../presentational/NavBar.jsx';
 import User from '../presentational/User.jsx';

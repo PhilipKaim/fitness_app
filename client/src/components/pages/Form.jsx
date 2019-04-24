@@ -66,9 +66,10 @@ const FormikApp = withFormik({
     }),
     async handleSubmit(values, { setSubmitting }) {
         const {weight, goal} = values
+        const token = window.localStorage.getItem('jwt')
 
         try {
-            await axios.post(`/api/form/${weight}/${goal}`)
+            await axios.post(`/api/form/${weight}/${goal}/${token}`)
             setSubmitting(false)
             window.location.href = '/home'
         } catch(e) {
