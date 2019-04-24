@@ -2,25 +2,17 @@ import React, { useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
+import queryString from 'query-string';
 
 const InitForm = ({ errors, touched, isSubmitting }) => {
 
     useEffect(() => {
-        // let query = queryString.parse(this.props.location.search);
+        let query = queryString.parse(window.location.search);
             
-        // if (query.token) {
-        //     window.localStorage.setItem("jwt", query.token);
-        // }
-
-        // if (window.localStorage.getItem('jwt') === null) {
-        //     this.props.history.push("/");
-        // } else {
-        //     const token = window.localStorage.getItem('jwt');
-
-        //     axios.get(`/api/getUser/${token}`)
-        //         .then(res => this.props.dispatch(getUser(res.data[0])));
-        // }
-    })
+        if (query.token) {
+            window.localStorage.setItem("jwt", query.token);
+        }
+    }, [])
 
     // SPINNER NOT VISABLE
     function loader() {
@@ -67,7 +59,7 @@ const FormikApp = withFormik({
     },
     validationSchema: Yup.object().shape({
         // REQUIRED ERROR MESSAGE NOT SHOWING
-        weight: Yup.string().required('Your current weight is required')
+        weight: Yup.number().min(2).required('Your current weight is required')
     }),
     async handleSubmit(values, { setSubmitting }) {
         const {weight, goal} = values
