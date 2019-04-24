@@ -19,7 +19,7 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
-    "query-string": "^6.2.0",
+    "query-string": "^6.4.2",
     "querystring": "^0.2.0",
     "react-router": "^5.0.0",
     "validator": "^10.8.0",

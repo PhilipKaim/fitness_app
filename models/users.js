@@ -19,6 +19,12 @@ const UserSchema = new Schema({
   image: {
     type: String
   },
+  goal: {
+    type: String
+  },
+  weight: {
+    type: Number
+  },
   token: {
     type: String
   }

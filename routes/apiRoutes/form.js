@@ -1,27 +1,24 @@
 // const axios = require('axios');
 const mongoose = require('mongoose');
+const Users = mongoose.model('users');
 // const _ = require('lodash');
 
 // const Form = mongoose.model('form');
 
 module.exports = app => {
-    app.post('/api/form/:weight/:goal', (req, res) => {
-        const { weight, goal } = req.params;
-
-        console.log(req.params);
+    app.post('/api/form/:weight/:goal/:token', async (req, res) => {
+        const { weight, goal, token } = req.params;
         
-        res.redirect("/home");
+        try {
+            await Users.update(
+                {token},
+                {weight, goal},
+                {multi: true});
 
-        // try {
-        //     // const user = await Users.find({
-        //     //     token
-        //     // });
+            res.send('user weight and goal added');
 
-        //     // res.send(user);
-
-
-        // } catch (err) {
-        //     console.log(err);
-        // }
+        } catch (err) {
+            console.log(err);
+        }
     });
 }
