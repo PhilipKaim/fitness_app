@@ -27,7 +27,8 @@ module.exports = passport => {
       proxy: true
     }, async (accessToken, refreshToken, profile, done) => {
 
-      const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
+      // const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
+      const image = profile.photos[0].value.replace('s50', 's500-c')
       
       const newUser = {
         googleID: profile.id,
@@ -37,7 +38,7 @@ module.exports = passport => {
         image: image,
         token: accessToken
       }
-
+      
       try {
         let user = await User.findOne({ googleID: profile.id });
         

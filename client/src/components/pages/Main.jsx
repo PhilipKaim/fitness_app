@@ -13,10 +13,11 @@ import { getUser } from '../../actions/user';
 import '../../styles/components/Profile.css';
 import GoalStatusAlert from '../presentational/GoalStatusAlert.jsx';
 import Dashboard from './Dashboard.jsx';
+import Aside from '../presentational/Aside.jsx';
 
 class Profile extends Component {
 
-    componentDidMount() {
+    async componentDidMount() {
         let query = queryString.parse(this.props.location.search);
             
         if (query.token) {
@@ -28,40 +29,23 @@ class Profile extends Component {
         } else {
             const token = window.localStorage.getItem('jwt');
 
-            axios.get(`/api/getUser/${token}`)
-                .then(res => this.props.dispatch(getUser(res.data[0])));
+            let user = await axios.get(`/api/getUser/${token}`)
+
+            console.log(user.data);
+            
+            this.props.dispatch(getUser(user.data[0]))
         }
               
     }
 
     render() {
-
-        const { image, firstName, lastName } = this.props.user;
         
         return (
             <div>
                 <NavBar signout={ true } />
                 <div className='p-2'>
                     <div id="dashboard__side-panel" className='col-md-3 p-2' style={{position: 'fixed', top: '70px'}}>
-                        <div className='shadow-sm rounded' style={{backgroundColor: 'white', height: '87vh', position: 'relative'}}>
-                            <User image={ image } firstName={ firstName } lastName={ lastName } />
-                            <hr/>
-                            <div className='d-flex flex-column justify-content-between pl-4 pt-2' style={{height: '20vh'}}>
-                                <div>
-                                    <i className="fas fa-chart-line pr-2"></i>
-                                    <NavLink activeClassName='is-active' to='/dashboard'>Dashboard</NavLink>
-                                </div>
-                                <div>
-                                    <i className="fas fa-utensils pr-2"></i>
-                                    <NavLink activeClassName='is-active' to='/food'>Manage Food</NavLink>
-                                </div>
-                                <div>
-                                    <i className="fas fa-cog pr-2"></i>
-                                    <NavLink activeClassName='is-active' to='/#'>Settings</NavLink>
-                                </div>
-                            </div>
-                            <GoalStatusAlert />            
-                        </div>
+                        <Aside />
                     </div>
                     <div id="dashboard__main" className='col-md-9 shadow-sm rounded p-2' style={{backgroundColor: 'white', height: '87vh', transform: 'translate(34%, 70px)'}}>
                         {/* <Router>
@@ -80,7 +64,6 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      user: state.user,
       foods: state.foods,
       modal: state.modals
     };

@@ -152,7 +152,7 @@ class UserPieChart extends Component {
                     height = '300' >
                     </svg>)
                     :
-                    'No Data ☹️'
+                    <p>No Data <i className="fas fa-sad-tear"></i></p>
                 }
             </div>
                 

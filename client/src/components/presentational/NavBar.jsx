@@ -10,6 +10,7 @@ const navBar = {
 
 const NavBar = (props) => (
     <nav className='navbar shadow-sm' style={navBar}>
+        <i className="fas fa-bars"></i>
         <span><NavLink to='/home'>LOGO</NavLink></span>
         <div className='navbar__links'>
             {
