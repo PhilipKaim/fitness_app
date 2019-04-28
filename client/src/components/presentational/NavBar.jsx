@@ -1,15 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 
-const navBar = {
-    height: '70px',
-    backgroundColor: 'white',
-    width: '100vw',
-    zIndex: '9999'
-}
-
 const NavBar = (props) => (
-    <nav className='navbar shadow-sm' style={navBar}>
+    <nav className='navbar shadow-sm'>
         <i className="fas fa-bars"></i>
         <span><NavLink to='/home'>LOGO</NavLink></span>
         <div className='navbar__links'>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import User from '../presentational/User'
 import GoalStatusAlert from './GoalStatusAlert';
 
@@ -10,14 +10,14 @@ const Aside = (props) => {
     const { image, firstName, lastName } = props.user;
 
     return (
-        <React.Fragment>
-            <div className='shadow-sm rounded' style={{backgroundColor: 'white', height: '87vh', position: 'relative'}}>
+        <div id="dashboard__side-panel" className='col-md-3 p-2'>
+            <div className='shadow-sm rounded'>
                 <User image={ image } firstName={ firstName } lastName={ lastName } />
                 <hr/>
-                <div className='d-flex flex-column justify-content-between pl-4 pt-2' style={{height: '20vh'}}>
+                <div className='d-flex flex-column justify-content-between pl-4 pt-2'>
                     <div>
                         <i className="fas fa-chart-line pr-2"></i>
-                        <NavLink activeClassName='is-active' to='/dashboard'>Dashboard</NavLink>
+                        <NavLink activeClassName='is-active' to='/home'>Dashboard</NavLink>
                     </div>
                     <div>
                         <i className="fas fa-utensils pr-2"></i>
@@ -30,7 +30,7 @@ const Aside = (props) => {
                 </div>
                 <GoalStatusAlert />            
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 

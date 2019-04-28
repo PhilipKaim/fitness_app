@@ -16,6 +16,7 @@ import { showAlert } from '../../actions/user';
 import { datePickerFoods } from '../../actions/foods';
 import { setSingleDatePickerDate } from '../../actions/foods';
 import { setSingleDatePickerFocused } from '../../actions/foods';
+import Aside from '../presentational/Aside.jsx';
 
 class ManageFood extends Component {
 
@@ -98,37 +99,44 @@ class ManageFood extends Component {
         return (
             <div>
                 <NavBar signout={ true } />
-                { message && <Alert message={message} resetAlert={ () => this.handleResetAlert() } /> }
-                <div className='row container'>
-                    <div className='col-md-3'>
-                        <SingleDatePicker
-                            date={ singleDatePickerDate }
-                            onDateChange={ this.onDateChange }
-                            focused={ singleDatePickerFocused }
-                            onFocusChange={ this.onFocusChange }
-                            numberOfMonths={ 1 }
-                            isOutsideRange={ () => false }
-                        />
+                <div>
+                    <div className="row">
+                        <Aside />
+                        <div className="col-md-9 pl-2 pr-2">
+                            { message && <Alert message={message} resetAlert={ () => this.handleResetAlert() } /> }
+                            <div className="row">
+                                <div className="col-md-3">
+                                    <SingleDatePicker
+                                        date={ singleDatePickerDate }
+                                        onDateChange={ this.onDateChange }
+                                        focused={ singleDatePickerFocused }
+                                        onFocusChange={ this.onFocusChange }
+                                        numberOfMonths={ 1 }
+                                        isOutsideRange={ () => false }
+                                    />
+                                </div>
+                                <div className="col-md-9">
+                                    <FoodSearch />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className='col-md-9'>
-                        <FoodSearch />
-                    </div>
+                    {
+                    visability
+                        &&
+                    modal === 'add'
+                        &&
+                    <FoodServingModal
+                    foodItem={ this.props.foods.selectedFoodName }
+                    image={ this.props.foods.selectedFoodImage }
+                        calculateFood={ this.handleCalculateSelectedFoodNutrition }
+                    />
+                    }
+
+                    { pickedDateFoods }
+
+                    { visability && modal === 'edit' && <EditFoodModal /> }
                 </div>
-                {
-                  visability
-                    &&
-                  modal === 'add'
-                    &&
-                  <FoodServingModal
-                  foodItem={ this.props.foods.selectedFoodName }
-                  image={ this.props.foods.selectedFoodImage }
-                    calculateFood={ this.handleCalculateSelectedFoodNutrition }
-                  />
-                }
-
-                { pickedDateFoods }
-
-                { visability && modal === 'edit' && <EditFoodModal /> }
             </div>
         );
     }

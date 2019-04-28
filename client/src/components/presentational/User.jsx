@@ -7,7 +7,9 @@ const User = (props) => (
             <div>
                 <img src={ props.image }
                 alt={ `${props.firstName} ${props.lastName}` }
-                className='user__image' />
+                className='user__image'
+                style={{height: '100px', width: '100px', borderRadius: '50%'}} />
+                
             </div>
         }
         

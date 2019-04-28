@@ -137,7 +137,6 @@ class UserPieChart extends Component {
         let macros = [totalCarbs, totalFats, totalProteins];
 
         let thereAreMacros = !macros.every(el => el === 0);
-        console.log(thereAreMacros);
         
 
         return (
