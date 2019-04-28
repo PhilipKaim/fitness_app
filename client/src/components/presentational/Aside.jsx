@@ -5,27 +5,35 @@ import GoalStatusAlert from './GoalStatusAlert';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import '../../styles/components/NavBar.css'
+
 const Aside = (props) => {
 
     const { image, firstName, lastName } = props.user;
 
     return (
-        <div id="dashboard__side-panel" className='col-md-3 p-2'>
-            <div className='shadow-sm rounded'>
+        <div id="dashboard__side-panel" className='col-md-3'>
+            <div className='shadow-sm rounded' style={{height: '90vh', position: 'relative'}}>
                 <User image={ image } firstName={ firstName } lastName={ lastName } />
                 <hr/>
-                <div className='d-flex flex-column justify-content-between pl-4 pt-2'>
+                <div className='d-flex flex-column justify-content-between pt-4' style={{height: '25vh'}}>
                     <div>
-                        <i className="fas fa-chart-line pr-2"></i>
-                        <NavLink activeClassName='is-active' to='/home'>Dashboard</NavLink>
+                        <NavLink activeClassName='is-active' to='/home'>
+                            <i className="fas fa-chart-line pr-2"></i>
+                            Dashboard
+                        </NavLink>
                     </div>
                     <div>
-                        <i className="fas fa-utensils pr-2"></i>
-                        <NavLink activeClassName='is-active' to='/food'>Manage Food</NavLink>
+                        <NavLink activeClassName='is-active' to='/food'>
+                            <i className="fas fa-utensils pr-2"></i>
+                            Manage Food
+                        </NavLink>
                     </div>
                     <div>
-                        <i className="fas fa-cog pr-2"></i>
-                        <NavLink activeClassName='is-active' to='/#'>Settings</NavLink>
+                        <NavLink activeClassName='is-active' to='/#'>
+                            <i className="fas fa-cog pr-2"></i>                        
+                            Settings
+                        </NavLink>
                     </div>
                 </div>
                 <GoalStatusAlert />            

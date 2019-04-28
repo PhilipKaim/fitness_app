@@ -102,10 +102,10 @@ class ManageFood extends Component {
                 <div>
                     <div className="row">
                         <Aside />
-                        <div className="col-md-9 pl-2 pr-2">
+                        <div className="col-md-9">
                             { message && <Alert message={message} resetAlert={ () => this.handleResetAlert() } /> }
-                            <div className="row">
-                                <div className="col-md-3">
+                            <div >
+                                <div className='d-flex justify-content-center' style={{width: '100%'}}>
                                     <SingleDatePicker
                                         date={ singleDatePickerDate }
                                         onDateChange={ this.onDateChange }
@@ -114,10 +114,9 @@ class ManageFood extends Component {
                                         numberOfMonths={ 1 }
                                         isOutsideRange={ () => false }
                                     />
-                                </div>
-                                <div className="col-md-9">
                                     <FoodSearch />
                                 </div>
+                                { pickedDateFoods }
                             </div>
                         </div>
                     </div>
@@ -133,7 +132,7 @@ class ManageFood extends Component {
                     />
                     }
 
-                    { pickedDateFoods }
+                    
 
                     { visability && modal === 'edit' && <EditFoodModal /> }
                 </div>

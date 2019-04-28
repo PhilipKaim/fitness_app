@@ -1,9 +1,5 @@
 .search {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    width: 80%;
 }
 
 .search__list {
@@ -16,7 +12,7 @@
 }
 
 .search__input {
-    width: 80%;
+    width: 100%;
     height: 30px;
     border: #eee solid 2px;
     border-top-left-radius: 5px;
