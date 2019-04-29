@@ -1,6 +1,6 @@
-// const axios = require('axios');
 const mongoose = require('mongoose');
-// const _ = require('lodash');
+const multer = require('multer')
+const sharp = require('sharp')
 
 const Users = mongoose.model('users');
 
@@ -19,4 +19,53 @@ module.exports = app => {
             console.log(err);
         }
     });
+
+    const upload = multer({
+        limits: {
+            fileSize: 1000000
+        },
+        fileFilter(req, file, cb) {
+            if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
+                return cb(new Error('Please upload an image file'))
+            }
+
+            cb(undefined, true)
+        }
+    })
+
+    app.post('/api/upload-image/:token', upload.single('upload-image'), async (req, res) => {
+        let token = req.params.token
+        const image = await sharp(req.file.buffer).resize({ width: 350, height: 350 }).png().toBuffer()
+
+        await Users.findOneAndUpdate({
+            token
+        }, {
+            image
+        })
+
+        res.send('Profile image updated!')
+    }, (error, req, res, next) => {
+        res.status(400).send({ error: error.message })
+    })
+
+    app.get('/api/user-image/:token', async (req, res) => {
+
+        let token = req.params.token
+
+        try {
+            const user = await Users.find({
+                token
+            })
+
+            if (!user || user.image) {
+                throw new Error()
+            }
+
+            res.set('Content-Type', 'image/png')
+            res.send(user[0].image)
+        } catch(e) {
+            res.status(404).send()
+        }
+
+    })
 }

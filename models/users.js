@@ -17,7 +17,7 @@ const UserSchema = new Schema({
     type: String
   },
   image: {
-    type: String
+    type: Buffer || String
   },
   goal: {
     type: String

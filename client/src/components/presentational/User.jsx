@@ -5,7 +5,7 @@ const User = (props) => (
         {props.image !== undefined
             &&
             <div>
-                <img src={ props.image }
+                <img src={ `http://localhost:5000/api/user-image/${props.token}` }
                 alt={ `${props.firstName} ${props.lastName}` }
                 className='user__image'
                 style={{height: '100px', width: '100px', borderRadius: '50%'}} />

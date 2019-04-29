@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import DatePicker from '../DatePicker'
-import UserPieChart from '../UserPieChart'
 import NavBar from '../presentational/NavBar'
 
 import { getUser } from '../../actions/user'
@@ -47,7 +46,6 @@ const Dashboard = (props) => {
                 <Aside  />
                 <div className='d-flex flex-column align-items-center col-md-9'>
                     <DatePicker />
-                    {/* <UserPieChart /> */}
                     <div>
                         <PieChartUser />
                         { props.user.goal === 'Lose Weight' ? 

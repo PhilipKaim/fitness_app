@@ -9,12 +9,15 @@ import '../../styles/components/NavBar.css'
 
 const Aside = (props) => {
 
-    const { image, firstName, lastName } = props.user;
+    const { image, firstName, lastName, token } = props.user;
+
+    console.log(image);
+    
 
     return (
         <div id="dashboard__side-panel" className='col-md-3'>
             <div className='shadow-sm rounded' style={{height: '90vh', position: 'relative'}}>
-                <User image={ image } firstName={ firstName } lastName={ lastName } />
+                <User image={ image } token={ token } firstName={ firstName } lastName={ lastName } />
                 <hr/>
                 <div className='d-flex flex-column justify-content-between pt-4' style={{height: '25vh'}}>
                     <div>
@@ -30,7 +33,7 @@ const Aside = (props) => {
                         </NavLink>
                     </div>
                     <div>
-                        <NavLink activeClassName='is-active' to='/#'>
+                        <NavLink activeClassName='is-active' to='/settings'>
                             <i className="fas fa-cog pr-2"></i>                        
                             Settings
                         </NavLink>
