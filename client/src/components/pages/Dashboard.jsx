@@ -9,6 +9,9 @@ import queryString from 'query-string'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import Aside from '../presentational/Aside';
+import PieChartUser from '../PieChartUser';
+import PieChartLoseWeight from '../PieChartLoseWeight';
+import PieChartGainMuscle from '../PieChartGainMuscle';
 
 const Dashboard = (props) => {
 
@@ -34,6 +37,9 @@ const Dashboard = (props) => {
         }
     }, [])
 
+    console.log(props.user);
+    
+
     return (
         <div>
             <NavBar signout={ true } />
@@ -41,7 +47,12 @@ const Dashboard = (props) => {
                 <Aside  />
                 <div className='d-flex flex-column align-items-center col-md-9'>
                     <DatePicker />
-                    <UserPieChart />
+                    {/* <UserPieChart /> */}
+                    <div>
+                        <PieChartUser />
+                        { props.user.goal === 'Lose Weight' ? 
+                            <PieChartLoseWeight /> : <PieChartGainMuscle /> }
+                    </div>
                 </div>
             </div>
         </div>

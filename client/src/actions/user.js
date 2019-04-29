@@ -1,7 +1,8 @@
-export const getUser = ({image, firstName, token}) => ({
+export const getUser = ({image, firstName, token, goal}) => ({
   type: 'GET_USER',
   image,
   firstName,
+  goal,
   token
 });
 

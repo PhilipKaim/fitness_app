@@ -7,7 +7,8 @@ export default (state = userReducerDefaultState, action) => {
         ...state,
         firstName: action.firstName,
         image: action.image,
-        token: action.token
+        token: action.token,
+        goal: action.goal
       };
     case 'SHOW_ALERT':
       return {
