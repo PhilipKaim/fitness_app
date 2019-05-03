@@ -35,8 +35,6 @@ const Dashboard = (props) => {
             fetchUser();
         }
     }, [])
-
-    console.log(props.user);
     
 
     return (

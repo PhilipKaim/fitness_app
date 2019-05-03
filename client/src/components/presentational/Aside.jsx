@@ -10,10 +10,7 @@ import '../../styles/components/NavBar.css'
 const Aside = (props) => {
 
     const { image, firstName, lastName, token } = props.user;
-
-    console.log(image);
     
-
     return (
         <div id="dashboard__side-panel" className='col-md-3'>
             <div className='shadow-sm rounded' style={{height: '90vh', position: 'relative'}}>
