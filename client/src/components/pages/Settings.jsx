@@ -10,24 +10,26 @@ import { showAlert } from '../../actions/user';
 
 const Settings = (props) => {
 
-    let [image, setImage] = useState(null)
+    let [image, setImage] = useState(props.user.image)
     let [goal, setGoal] = useState(props.user.goal)
+    let [weight, setWeight] = useState(props.user.weight)
 
-    useEffect(() => {
-        // document.querySelector('#goal').value = props.user.goal
+    // useEffect(() => {
+    //     // document.querySelector('#goal').value = props.user.goal
 
-        // console.log(document.querySelector('#goal').value);
+    //     // console.log(document.querySelector('#goal').value);
         
         
-    }, [image, goal])
+    // }, [image, goal])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        
         let formData = new FormData()
 
         formData.append('upload-image', image, image.name)
         formData.append('goal', goal)
+        formData.append('weight', weight)
 
         axios.post(`/api/upload-image/${props.user.token}`, formData).then(res => {
             return props.dispatch(showAlert(res.data));
@@ -56,6 +58,10 @@ const Settings = (props) => {
                                 <option value="lose weight">Lose Weight</option>
                                 <option value="Gain Muscle">Gain Muscle</option>
                             </select>
+                        </label>
+
+                        <label htmlFor="weight">
+                            <input type="number" name="weight" id="weight" onChange={(e) => { setWeight(e.target.value) }} />
                         </label>
                         
                         <input className='btn btn-primary' type="submit" value="Submit" />

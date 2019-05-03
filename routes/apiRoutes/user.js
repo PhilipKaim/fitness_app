@@ -36,18 +36,24 @@ module.exports = app => {
     app.post('/api/upload-image/:token', upload.single('upload-image'), async (req, res) => {
         let token = req.params.token
         let file = req.file
-        let goal = req.body.goal
-
-        const image = await sharp(file.buffer).resize({ width: 350, height: 350 }).png().toBuffer()
-
-        await Users.findOneAndUpdate({
-            token
-        }, {
-            image,
-            goal
-        })
-
-        res.send('Settings updated!')
+        let { goal, weight } = req.body
+        
+        if (token) {
+            const image = await sharp(file.buffer).resize({ width: 350, height: 350 }).png().toBuffer()
+    
+            await Users.findOneAndUpdate({
+                token
+            }, {
+                image,
+                goal,
+                weight
+            })
+    
+            res.send('Settings updated!')
+        } else {
+            res.send('Please login to save settings')
+        }
+        
     }, (error, req, res, next) => {
         res.send(error.message)
     })
