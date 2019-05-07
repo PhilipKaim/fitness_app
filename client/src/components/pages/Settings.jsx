@@ -14,14 +14,6 @@ const Settings = (props) => {
     let [goal, setGoal] = useState(props.user.goal)
     let [weight, setWeight] = useState(props.user.weight)
 
-    // useEffect(() => {
-    //     // document.querySelector('#goal').value = props.user.goal
-
-    //     // console.log(document.querySelector('#goal').value);
-        
-        
-    // }, [image, goal])
-
     const handleSubmit = (e) => {
         e.preventDefault()
         

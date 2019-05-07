@@ -13,7 +13,6 @@ import Settings from '../components/pages/Settings';
 
 import { getUser } from '../actions/user'
 
-
 const AppRouter = (props) => {
 
   useEffect(() => {
@@ -24,7 +23,10 @@ const AppRouter = (props) => {
       }
       
       if (window.localStorage.getItem('jwt') === null) {
-          window.location.href = '/home'
+          let url = window.location.origin + '/'
+          if (window.location.href !== url) {
+            window.location.href = '/'
+          }
       } else {
           const token = window.localStorage.getItem('jwt');
 

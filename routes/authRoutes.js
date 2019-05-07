@@ -1,19 +1,20 @@
 const passport = require('passport');
-// const _ = require('lodash');
+const express = require('express')
+const router = express.Router()
 
 const middleware = require('../middleware/middleware');
 
-module.exports = app => {
-  app.get('/auth/google',
-    middleware.logout,
-    passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/google',
+  middleware.logout,
+  passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-  app.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/' }),
-    middleware.successRedirect);
-  
-  app.get('/auth/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-  });
-}
+router.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/' }),
+  middleware.successRedirect);
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = router
