@@ -41,7 +41,7 @@
     "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha /**/*.test.js",
     "test-watch": "nodemon --exec 'npm run test'",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "export NODE_ENV=production npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "eslintConfig": {
     "extends": "react-app"
