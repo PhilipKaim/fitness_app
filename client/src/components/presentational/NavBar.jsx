@@ -6,7 +6,7 @@ const NavBar = (props) => (
         <div className="container">
             <div><img style={{width: '41px', height: 'auto'}} src={ require('../../images/leaf.svg') } /><span style={{fontSize: '20px', verticalAlign: 'center'}}>NutriTrack</span></div>
             <div><i className="fas fa-bars pr-2"></i><span>MENU</span></div>
-            {/* <div className='navbar__links'>
+            <div className='navbar__links'>
                 {
                 props.signout
                     ?
@@ -14,7 +14,7 @@ const NavBar = (props) => (
                     :
                 <a><button className='navbar__sign-in btn btn-secondary' onClick={ props.openModal }>Sign In</button></a>
                 }
-            </div> */}
+            </div>
         </div>
     </nav>
 );
