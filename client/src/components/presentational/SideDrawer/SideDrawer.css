@@ -1,0 +1,64 @@
+.side-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #FFFFFF;
+    max-width: 575px;
+    min-width: 300px;
+    z-index: 999999;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.side-drawer__top-box {
+    height: 150px;
+    width: 100%;
+    background-color: #34DB93;
+    margin-bottom: 20px;
+}
+
+.side-drawer__close {
+    position: relative;
+}
+
+.side-drawer__close i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    font-size: 25px;
+}
+
+.side-drawer__close:hover {
+    cursor: pointer;
+}
+
+.side-drawer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-around;
+}
+
+.side-drawer ul li {
+    font-size: 20px;
+    width: 100%;
+}
+
+.side-drawer ul li a {
+    color: #465A52;
+}
+
+.side-drawer ul li i {
+    color: #A4B0AC;
+}
+
+@keyframes slideIn {
+    from {
+        right: -80%;
+    }
+    to {
+        right: 0;
+    }
+}

@@ -6,6 +6,8 @@ import SignInModal from '../presentational/SignInModal.jsx';
 
 import { signinModal } from '../../actions/modals';
 import Footer from '../presentational/Footer';
+import SideDrawer from '../presentational/SideDrawer/SideDrawer';
+import Overlay from '../presentational/SideDrawer/Overlay';
 
 class Login extends Component {
 
@@ -32,6 +34,13 @@ class Login extends Component {
             <div className='login'>
                 <NavBar openModal={ () => this.handleModalOpen() } />
                 { visability && modal === 'signin' && <SignInModal closeModal={ () => this.handleModalClose() } />  }
+                { this.props.sideDrawer.visible === true && (
+                    <React.Fragment>
+                        <SideDrawer />
+                        <Overlay />
+                    </React.Fragment>
+                )}
+                
                 <main>
                     <section style={{backgroundImage: `url(${backgroundImage})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center -420px', height: '487px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10% 5%'}}>
                         <div className="container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -61,6 +70,7 @@ class Login extends Component {
 const mapStateToProps = (state) => {
     return {
       modal: state.modals,
+      sideDrawer: state.sideDrawer
     };
 };
 
