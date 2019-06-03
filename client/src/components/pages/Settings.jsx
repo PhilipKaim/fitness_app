@@ -34,12 +34,9 @@ const Settings = (props) => {
 
     return (
         <Layout>
-            <div className='row'>
-                <Aside />
-                <div className="col-md-9">
-
+            <div>
+                <div>
                     { message && <Alert message={message} /> }
-
                     <form onSubmit={handleSubmit}>
                         <input name='profileImage' id='uploadImage' type="file" onChange={(e) => {
                             setImage(e.target.files[0])

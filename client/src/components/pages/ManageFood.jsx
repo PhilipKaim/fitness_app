@@ -99,9 +99,9 @@ class ManageFood extends Component {
         return (
             <Layout>
                 <div>
-                    <div className="row">
-                        <Aside />
-                        <div className="col-md-9">
+                    <div>
+                        {/* <Aside /> */}
+                        <div>
                             { message && <Alert message={message} resetAlert={ () => this.handleResetAlert() } /> }
                             <div >
                                 <div className='d-flex justify-content-center' style={{width: '100%'}}>

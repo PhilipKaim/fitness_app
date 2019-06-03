@@ -12,9 +12,9 @@ const Dashboard = (props) => {
     
     return (
         <Layout>
-            <div className="row">
-                <Aside  />
-                <div className='d-flex flex-column align-items-center col-md-9'>
+            <div>
+                {/* <Aside  /> */}
+                <div className='d-flex flex-column align-items-center justify-content-center'>
                     <DatePicker />
                     <div>
                         <PieChartUser />
