@@ -6,11 +6,12 @@ import Aside from '../presentational/Aside';
 import PieChartUser from '../PieChartUser';
 import PieChartLoseWeight from '../PieChartLoseWeight';
 import PieChartGainMuscle from '../PieChartGainMuscle';
+import Layout from './Layout/Layout';
 
 const Dashboard = (props) => {
     
     return (
-        <div>
+        <Layout>
             <div className="row">
                 <Aside  />
                 <div className='d-flex flex-column align-items-center col-md-9'>
@@ -22,7 +23,7 @@ const Dashboard = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 

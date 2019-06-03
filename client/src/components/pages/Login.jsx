@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import NavBar from '../presentational/NavBar/NavBar';
 import { connect } from 'react-redux';
 
-import SignInModal from '../presentational/SignInModal.jsx';
-
-import { signinModal } from '../../actions/modals';
 import Footer from '../presentational/Footer';
-import SideDrawer from '../presentational/SideDrawer/SideDrawer';
-import Overlay from '../presentational/SideDrawer/Overlay';
+
 
 class Login extends Component {
 

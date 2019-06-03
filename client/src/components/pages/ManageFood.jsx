@@ -16,6 +16,7 @@ import { datePickerFoods } from '../../actions/foods';
 import { setSingleDatePickerDate } from '../../actions/foods';
 import { setSingleDatePickerFocused } from '../../actions/foods';
 import Aside from '../presentational/Aside.jsx';
+import Layout from './Layout/Layout';
 
 class ManageFood extends Component {
 
@@ -96,7 +97,7 @@ class ManageFood extends Component {
         const pickedDateFoods = datePickerFoods.map(el => <PickedDateFoods key={ el._id } image={ el.image } foodName={ el._id } quantity={ el.quantity } />);
         
         return (
-            <div>
+            <Layout>
                 <div>
                     <div className="row">
                         <Aside />
@@ -134,7 +135,7 @@ class ManageFood extends Component {
 
                     { visability && modal === 'edit' && <EditFoodModal /> }
                 </div>
-            </div>
+            </Layout>
         );
     }
 }

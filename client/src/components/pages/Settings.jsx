@@ -7,6 +7,7 @@ import axios from 'axios'
 import { connect } from 'react-redux';
 
 import { showAlert } from '../../actions/user';
+import Layout from './Layout/Layout';
 
 const Settings = (props) => {
 
@@ -32,7 +33,7 @@ const Settings = (props) => {
     let message = props.user.message
 
     return (
-        <div>
+        <Layout>
             <div className='row'>
                 <Aside />
                 <div className="col-md-9">
@@ -59,7 +60,7 @@ const Settings = (props) => {
                     </form>
                 </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 
