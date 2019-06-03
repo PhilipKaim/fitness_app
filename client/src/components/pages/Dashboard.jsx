@@ -1,6 +1,5 @@
 import React from 'react'
 import DatePicker from '../DatePicker'
-import NavBar from '../presentational/NavBar'
 
 import { connect } from 'react-redux'
 import Aside from '../presentational/Aside';
@@ -12,7 +11,6 @@ const Dashboard = (props) => {
     
     return (
         <div>
-            <NavBar signout={ true } />
             <div className="row">
                 <Aside  />
                 <div className='d-flex flex-column align-items-center col-md-9'>

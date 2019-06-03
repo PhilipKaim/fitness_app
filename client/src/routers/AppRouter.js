@@ -10,8 +10,12 @@ import Error from '../components/pages/Error.jsx';
 import Form from '../components/pages/Form.jsx';
 import Dashboard from '../components/pages/Dashboard.jsx';
 import Settings from '../components/pages/Settings';
+import SideDrawer from '../components/presentational/SideDrawer/SideDrawer';
+import Overlay from '../components/presentational/SideDrawer/Overlay';
+import NavBar from '../components/presentational/NavBar/NavBar';
 
-import { getUser } from '../actions/user'
+import { getUser } from '../actions/user';
+
 
 const AppRouter = (props) => {
 
@@ -39,9 +43,16 @@ const AppRouter = (props) => {
           fetchUser();
       }
   }, [])
-
+  
     return (
       <div>
+        <NavBar />
+        { props.sideDrawer.visible === true && (
+            <React.Fragment>
+                <SideDrawer />
+                <Overlay />
+            </React.Fragment>
+        )}
         <Router>
           <Switch>
             <Route path='/' component={ Login } exact={ true } />
@@ -59,7 +70,8 @@ const AppRouter = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    sideDrawer: state.sideDrawer
   };
 };
 

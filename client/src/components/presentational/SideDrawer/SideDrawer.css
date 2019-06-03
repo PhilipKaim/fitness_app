@@ -37,7 +37,6 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    height: 100px;
     justify-content: space-around;
 }
 
@@ -52,6 +51,44 @@
 
 .side-drawer ul li i {
     color: #A4B0AC;
+}
+
+.side-drawer__sublist {
+    padding-left: 0.6rem;
+    padding-top: 0.5rem;
+}
+
+/* google button */
+.google-button {
+    height: 40px;
+    border-width: 0;
+    background: white;
+    color: #465A52;
+    white-space: nowrap;
+    border-left: 2px solid #34DB93;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google-button:focus,
+.google-button:hover {
+    cursor: pointer;
+}
+    
+.google-button__icon {
+    margin: 8px 0 8px 12px;
+    width: 18px;
+    box-sizing: border-box;
+    transform: translateY(-2px);
+}
+
+.google-button__text {
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Roboto',arial,sans-serif;
 }
 
 @keyframes slideIn {

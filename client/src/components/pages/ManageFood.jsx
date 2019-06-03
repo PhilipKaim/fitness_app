@@ -10,7 +10,6 @@ import PickedDateFoods from '../presentational/PickedDateFoods.jsx';
 
 import FoodServingModal from '../presentational/FoodServingModal.jsx';
 import Alert from '../presentational/Alert.jsx';
-import NavBar from '../presentational/NavBar.jsx';
 
 import { showAlert } from '../../actions/user';
 import { datePickerFoods } from '../../actions/foods';
@@ -98,7 +97,6 @@ class ManageFood extends Component {
         
         return (
             <div>
-                <NavBar signout={ true } />
                 <div>
                     <div className="row">
                         <Aside />
