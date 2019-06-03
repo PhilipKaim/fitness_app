@@ -2,7 +2,6 @@ import React from 'react'
 import DatePicker from '../DatePicker'
 
 import { connect } from 'react-redux'
-import Aside from '../presentational/Aside';
 import PieChartUser from '../PieChartUser';
 import PieChartLoseWeight from '../PieChartLoseWeight';
 import PieChartGainMuscle from '../PieChartGainMuscle';
@@ -13,7 +12,6 @@ const Dashboard = (props) => {
     return (
         <Layout>
             <div>
-                {/* <Aside  /> */}
                 <div className='d-flex flex-column align-items-center justify-content-center'>
                     <DatePicker />
                     <div>

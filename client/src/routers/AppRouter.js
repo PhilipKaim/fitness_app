@@ -46,22 +46,24 @@ const AppRouter = (props) => {
   
     return (
       <div>
-        <NavBar />
-        { props.sideDrawer.visible === true && (
-            <React.Fragment>
-                <SideDrawer />
-                <Overlay />
-            </React.Fragment>
-        )}
         <Router>
-          <Switch>
-            <Route path='/' component={ Login } exact={ true } />
-            <Route path='/form' component={ Form } />
-            <Route path='/home' component={ Dashboard } />
-            <Route path='/food' component={ ManageFood } />
-            <Route path='/settings' component={ Settings } />
-            <Route component={ Error } />
-          </Switch>
+          <div>
+            <NavBar />
+            { props.sideDrawer.visible === true && (
+                <React.Fragment>
+                    <SideDrawer />
+                    <Overlay />
+                </React.Fragment>
+            )}
+            <Switch>
+              <Route path='/' component={ Login } exact={ true } />
+              <Route path='/form' component={ Form } />
+              <Route path='/home' component={ Dashboard } />
+              <Route path='/food' component={ ManageFood } />
+              <Route path='/settings' component={ Settings } />
+              <Route component={ Error } />
+            </Switch>
+          </div>
         </Router>
       </div>
     )

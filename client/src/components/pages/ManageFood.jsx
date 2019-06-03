@@ -15,7 +15,6 @@ import { showAlert } from '../../actions/user';
 import { datePickerFoods } from '../../actions/foods';
 import { setSingleDatePickerDate } from '../../actions/foods';
 import { setSingleDatePickerFocused } from '../../actions/foods';
-import Aside from '../presentational/Aside.jsx';
 import Layout from './Layout/Layout';
 
 class ManageFood extends Component {
@@ -100,7 +99,6 @@ class ManageFood extends Component {
             <Layout>
                 <div>
                     <div>
-                        {/* <Aside /> */}
                         <div>
                             { message && <Alert message={message} resetAlert={ () => this.handleResetAlert() } /> }
                             <div >

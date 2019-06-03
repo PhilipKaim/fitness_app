@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Aside from '../presentational/Aside';
-import NavBar from '../presentational/NavBar/NavBar';
 import Alert from '../presentational/Alert.jsx';
 
 import axios from 'axios'
