@@ -13,8 +13,8 @@ const PieChartUser = (props) => {
                 totalProteins
             } = props.foods;
         
-            let macros = [totalCarbs, totalFats, totalProteins];
-    
+            let macros = [totalProteins, totalCarbs, totalFats];
+
             return macros
         }
 
