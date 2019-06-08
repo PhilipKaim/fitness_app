@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
+import moment from 'moment';
 
 import ListItem from './presentational/ListItem.jsx';
 
@@ -33,7 +34,7 @@ class FoodSearch extends Component {
                     carbs: allNutritionData.nf_total_carbohydrate,
                     fats: allNutritionData.nf_total_fat,
                     calories: allNutritionData.nf_calories,
-                    dateAdded: allNutritionData.consumed_at
+                    dateAdded: moment().format('MM-DD-YYYY')
                 };
 
                 this.props.dispatch(selectedFood(foodInfo));

@@ -32,6 +32,9 @@ router.get('/datePicker/:date/:token', async (req, res) => {
     let date = req.params.date;
     let token = req.params.token;
 
+    console.log(date);
+    
+
     try {
         let foodAgg = await Food.aggregate([{
                 $match: {

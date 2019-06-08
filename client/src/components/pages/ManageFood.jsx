@@ -37,10 +37,7 @@ class ManageFood extends Component {
         let foodName = this.props.foods.selectedFoodName;
         let protein = this.props.foods.selectedFoodProtein;
         let nutritionixWeight = this.props.foods.selectedFoodWeight;
-        let dateAddedFull = this.props.foods.selectedFoodDateAdded;
-
-        let dateAdded = dateAddedFull.substring(0, dateAddedFull.indexOf('T'));
-
+        let dateAdded = this.props.foods.selectedFoodDateAdded;
 
         let foodInfo = {
             quantitiy: +quantitiy,
@@ -52,7 +49,7 @@ class ManageFood extends Component {
             foodName,
             protein,
             nutritionixWeight: +nutritionixWeight,
-            dateAdded: moment(dateAdded).format('MM-DD-YYYY'),
+            dateAdded,
             timeAdded: moment().format('hh:mm a')
         }
         

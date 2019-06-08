@@ -22,10 +22,8 @@ const PieChartUser = (props) => {
 
         let ctx = document.getElementById('usersCurrentMacrosChart').getContext('2d');
         let chart = new Chart(ctx, {
-            // The type of chart we want to create
             type: 'doughnut',
 
-            // The data for our dataset
             data: {
                 labels: ['protiens', 'carbs', 'fats'],
                 datasets: [{

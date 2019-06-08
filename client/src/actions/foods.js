@@ -80,9 +80,7 @@ export const datePickerFoods = (date, token) => {
                 let formattedDate = moment(date._d).format('MM-DD-YYYY');
                 
                 let food = await axios.get(`/api/datePicker/${formattedDate}/${token}`);
-                
-                console.log(food.data);
-                
+            
 
                 dispatch({
                     type: 'DATE_PICKER_FOODS',

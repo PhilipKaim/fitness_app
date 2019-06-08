@@ -13,10 +13,10 @@ import AppRouter from './routers/AppRouter';
 
 const store = configureStore();
 
-store.subscribe(() => {
-    console.log('state updated');
-    console.log(store.getState());
-})
+// store.subscribe(() => {
+//     console.log('state updated');
+//     console.log(store.getState());
+// })
 
 const jsx = (
     <Provider store={store}>
