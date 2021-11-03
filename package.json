@@ -27,7 +27,7 @@
     "querystring": "^0.2.0",
     "react-router": "^5.0.0",
     "sharp": "^0.22.1",
-    "validator": "^10.8.0",
+    "validator": "^13.7.0",
     "yup": "^0.27.0"
   },
   "engines": {
